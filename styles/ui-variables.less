@@ -1,14 +1,14 @@
 // Colors
 
-@text-color: #aaa;
-@text-color-subtle: #555;
+@text-color: #EBD1B7;
+@text-color-subtle: #666;
 @text-color-highlight: #fff;
 @text-color-selected: @text-color-highlight;
 
 @text-color-info: #5293d8;
-@text-color-success: #2BDA77;
-@text-color-warning: #ff982d;
-@text-color-error: #c00;
+@text-color-success: #2ecc71;
+@text-color-warning: #f1c40f;
+@text-color-error: #e74c3c;
 
 @text-color-ignored: @text-color-subtle;
 @text-color-added: @text-color-success;
@@ -17,16 +17,18 @@
 @text-color-removed: @text-color-error;
 
 @background-color-info: #0098ff;
-@background-color-success: #17ca65;
-@background-color-warning: #ffaa2c;
-@background-color-error: #c00;
+@background-color-success: #27ae60;
+@background-color-warning: #f39c12;
+@background-color-error: #c0392b;
 @background-color-highlight: rgba(255, 255, 255, 0.07);
-@background-color-selected: #4182C4;
+@background-color-selected: #DD7847;
+@background-inactive-color-selected: desaturate(@background-color-selected, 20%);
 
-@app-background-color: #333;
+@app-background-color: #36312C;
+@app-inactive-background-color: darken(@app-background-color, 1%);
 
-@base-background-color: lighten(@tool-panel-background-color, 5%);
-@base-border-color: rgba(0, 0, 0, 0.5);
+@base-background-color: @app-inactive-background-color;
+@base-border-color: rgba(0, 0, 0, 0.3);
 
 @pane-item-background-color: @base-background-color;
 @pane-item-border-color: rgba(0, 0, 0, 0.5);
@@ -34,7 +36,7 @@
 @input-background-color: #212224;
 @input-border-color: @base-border-color;
 
-@tool-panel-background-color: #1d1f21;
+@tool-panel-background-color: @app-background-color;
 @tool-panel-border-color: @base-border-color;
 
 @inset-panel-background-color: #161719;
@@ -46,19 +48,21 @@
 @overlay-background-color: #202123;
 @overlay-border-color: @background-color-highlight;
 
-@button-background-color: #43484d;
+@button-background-color: #645C54;
 @button-background-color-hover: lighten(@button-background-color, 5%);
-@button-background-color-selected: #5c6064;
+@button-background-color-selected: darken(@button-background-color, 3%);
 @button-border-color: @base-border-color;
 
-@tab-bar-background-color: #222;
+@tab-bar-background-color: #403B36;
 @tab-bar-border-color: darken(@tab-background-color-active, 10%);
 @tab-background-color: #333;
-@tab-background-color-active: #222;
-@tab-border-color: #484848;
+@tab-background-color-active: #645C54;
+@tab-border-color: transparent;
+@tab-inactive-color: lighten(#4A4540, 30%);
 
-@tree-view-background-color: #303030;
+@tree-view-background-color: @app-inactive-background-color;
 @tree-view-border-color: @tool-panel-border-color;
+@tree-view-text-color: #9A9191;
 
 @scrollbar-background-color: #222425; // Needs to be opaque -> atom/atom/issues/4578
 @scrollbar-color: rgba(92, 92, 92, 0.5);

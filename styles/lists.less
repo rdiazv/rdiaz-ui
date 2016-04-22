@@ -6,6 +6,7 @@
   li:not(.list-nested-item),
   li.list-nested-item > .list-item {
     .text(normal);
+    color: @tree-view-text-color;
   }
 
   .generate-list-item-text-color(@class) {
@@ -34,14 +35,50 @@
   }
 
   .generate-list-item-status-color(@text-color-subtle, ignored);
-  .generate-list-item-status-color(@text-color-added, added);
-  .generate-list-item-status-color(@text-color-renamed, renamed);
-  .generate-list-item-status-color(@text-color-modified, modified);
-  .generate-list-item-status-color(@text-color-removed, removed);
+  .generate-list-item-status-color(@tree-view-text-color, added);
+  .generate-list-item-status-color(@tree-view-text-color, renamed);
+  .generate-list-item-status-color(@tree-view-text-color, modified);
+  .generate-list-item-status-color(@tree-view-text-color, removed);
 
   li:not(.list-nested-item).selected,
   li.list-nested-item.selected > .list-item {
-    .text(selected);
+    color: @text-color-highlight !important;
+  }
+
+  .git-indicator(@color) {
+    .icon-file-text, .icon-file-directory {
+      position: relative;
+
+      &:after {
+        content: '';
+        background: @color;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .icon-file-directory:after {
+      left: -28px;
+    }
+  }
+
+  // Modified
+  li:not(.list-nested-item).status-modified,
+  li.list-nested-item.status-modified > .list-item {
+    color: @text-color-highlight;
+    .git-indicator(@text-color-modified);
+  }
+
+  // Added
+  li:not(.list-nested-item).status-added,
+  li.list-nested-item.status-added > .list-item {
+    color: @text-color-highlight;
+    .git-indicator(@text-color-added);
   }
 }
 
